@@ -51,12 +51,21 @@ export function handleTransfer(event: Transfer): void {
   // liquidity token amount being transfered
   let value = convertTokenToDecimal(event.params.value, BI_18)
 
-  // get or create transaction
+  /** get or create transaction */
   let transaction = Transaction.load(transactionHash)
   if (transaction === null) {
     transaction = new Transaction(transactionHash)
     transaction.blockNumber = event.block.number
     transaction.timestamp = event.block.timestamp
+    /** 
+    * transactionGas
+    * @param gasUsed
+    * @param gasPrice
+    * @summary gives the total real cost of a transaction
+    */
+    transaction.gasUsed = event.transaction.gasUsed.toBigDecimal()
+    transaction.gasPrice = event.transaction.gasPrice.toBigDecimal()
+    
     transaction.mints = []
     transaction.burns = []
     transaction.swaps = []
@@ -454,7 +463,7 @@ export function handleSwap(event: Swap): void {
   uniswap.untrackedVolumeUSD = uniswap.untrackedVolumeUSD.plus(derivedAmountUSD)
   uniswap.txCount = uniswap.txCount.plus(ONE_BI)
 
-  // save entities
+/** @exports save entities */
   pair.save()
   token0.save()
   token1.save()
@@ -465,6 +474,16 @@ export function handleSwap(event: Swap): void {
     transaction = new Transaction(event.transaction.hash.toHexString())
     transaction.blockNumber = event.block.number
     transaction.timestamp = event.block.timestamp
+    
+    /** 
+    * @summary transactionGasCost
+    * @param gasPrice
+    * @param gasUsed
+    * @types {BigDecimal}
+    */
+    transaction.gasUsed = event.transaction.gasUsed.toBigDecimal()
+    transaction.gasPrice = event.transaction.gasPrice.toBigDecimal()
+    
     transaction.mints = []
     transaction.swaps = []
     transaction.burns = []
