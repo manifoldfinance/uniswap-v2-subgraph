@@ -99,6 +99,9 @@ export function handleNewPair(event: PairCreated): void {
   pair.volumeToken0 = ZERO_BD
   pair.volumeToken1 = ZERO_BD
   pair.volumeUSD = ZERO_BD
+/** @note provides for tracked and untracked volume combined */
+/** @returns combinedVolumeUSD */
+  pair.combinedVolumeUSD = ZERO_BD  
   pair.untrackedVolumeUSD = ZERO_BD
   pair.token0Price = ZERO_BD
   pair.token1Price = ZERO_BD
