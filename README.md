@@ -1,4 +1,22 @@
-# Uniswap V2 Subgraph
+<div align="center">
+
+# pawsinu
+
+[Extended UniSwap V2 SubGraph](https://thegraph.com/explorer/subgraph/manifoldfinance/pawsinu)
+
+</div>
+
+## Fork Overview
+
+- gasUsed
+- gasPrice
+- aggregate trading pair volume by:
+	* hour
+	* day
+	* session high
+
+
+### Uniswap V2 Subgraph
 
 [Uniswap](https://uniswap.org/) is a decentralized protocol for automated token exchange on Ethereum.
 
