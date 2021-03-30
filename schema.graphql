@@ -78,6 +78,7 @@ type Pair @entity {
   volumeToken1: BigDecimal!
   volumeUSD: BigDecimal!
   untrackedVolumeUSD: BigDecimal!
+  combinedVolumeUSD: BigDecimal!
   txCount: BigInt!
 
   # creation stats
@@ -247,7 +248,7 @@ type PairHourData @entity {
 
   # total supply for LP historical returns
   totalSupply: BigDecimal!
-
+  
   # derived liquidity
   reserveUSD: BigDecimal!
 
@@ -255,6 +256,7 @@ type PairHourData @entity {
   hourlyVolumeToken0: BigDecimal!
   hourlyVolumeToken1: BigDecimal!
   hourlyVolumeUSD: BigDecimal!
+  combinedHourlyVolumeUSD: BigDecimal!
   hourlyTxns: BigInt!
 }
 
@@ -280,6 +282,7 @@ type PairDayData @entity {
   dailyVolumeToken0: BigDecimal!
   dailyVolumeToken1: BigDecimal!
   dailyVolumeUSD: BigDecimal!
+  combinedDailyVolumeUSD: BigDecimal!
   dailyTxns: BigInt!
 }
 
