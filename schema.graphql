@@ -129,6 +129,11 @@ type Transaction @entity {
   id: ID! # txn hash
   blockNumber: BigInt!
   timestamp: BigInt!
+  
+  # @note gasUsed and gasPrice in a tx
+  gasUsed: BigDecimal!
+  gasPrice: BigDecimal!
+  
   # This is not the reverse of Mint.transaction; it is only used to
   # track incomplete mints (similar for burns and swaps)
   mints: [Mint]!
