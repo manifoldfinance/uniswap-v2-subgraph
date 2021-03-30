@@ -438,6 +438,7 @@ export function handleSwap(event: Swap): void {
   token0.tradeVolume = token0.tradeVolume.plus(amount0In.plus(amount0Out))
   token0.tradeVolumeUSD = token0.tradeVolumeUSD.plus(trackedAmountUSD)
   token0.untrackedVolumeUSD = token0.untrackedVolumeUSD.plus(derivedAmountUSD)
+  token0.allVolumeUSD = token0.untrackedVolumeUSD.plus(token0.tradeVolumeUSD);
 
   // update token1 global volume and token liquidity stats
   token1.tradeVolume = token1.tradeVolume.plus(amount1In.plus(amount1Out))
